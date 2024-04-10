@@ -5,3 +5,6 @@
 *.cubin
 *.fatbin
 *.vs
+/WFA2-lib/out
+/WFA2-lib/CMakePresets.json
+/WFA2-lib/CMakeSettings.json
