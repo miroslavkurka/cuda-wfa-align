@@ -145,7 +145,8 @@ set(wfa2lib_SOURCE
 add_library(wfa2_static
     ${wfa2lib_SOURCE}
     )
-add_library(wfa2 SHARED ${wfa2lib_SOURCE})
+add_library(wfa2 SHARED ${wfa2lib_SOURCE}
+        ../Tests/align_test.c)
 set_target_properties(wfa2_static PROPERTIES OUTPUT_NAME wfa2)
 set_target_properties(wfa2 PROPERTIES SOVERSION 0)
 target_include_directories(wfa2 PUBLIC . wavefront utils)
