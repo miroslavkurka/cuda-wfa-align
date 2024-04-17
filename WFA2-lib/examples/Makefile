@@ -13,7 +13,8 @@ LIBS=-fopenmp -lm
 ifeq ($(UNAME), Linux)
   LIBS+=-lrt 
 endif
-        
+CC:=gcc-13
+CPP:=g++-13        
 all: setup examples_c examples_cpp
 	
 examples_c: *.c $(LIB_WFA)
