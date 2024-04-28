@@ -9,8 +9,8 @@ FOLDER_TESTS=tests
 
 UNAME=$(shell uname)
 
-CC:=gcc-13
-CPP:=g++-13
+CC:=gcc
+CPP:=g++
 
 CC_FLAGS=-Wall -g -fPIE
 
@@ -45,7 +45,7 @@ ifeq ($(BUILD_EXAMPLES),1)
     APPS+=examples
 endif
 
-all: CC_FLAGS+=-O3 -march=native #-flto -ffat-lto-objects
+all: CC_FLAGS+= -march=native -fdump-rtl-expand -g -O0#-flto -ffat-lto-objects -O3
 all: build
 
 debug: build
