@@ -9,11 +9,11 @@ FOLDER_BIN=bin
 # Rules
 ###############################################################################
 LIB_WFA=$(FOLDER_LIB)/libwfa.a
-LIBS=-fopenmp -lm
+LIBS=-fopenmp -lm -fdump-rtl-expand -g
 ifeq ($(UNAME), Linux)
   LIBS+=-lrt 
 endif
-CC:=clang
+CC:=gcc
 CPP:=g++
 all: setup examples_c examples_cpp
 	
