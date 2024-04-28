@@ -13,15 +13,15 @@ LIBS=-fopenmp -lm
 ifeq ($(UNAME), Linux)
   LIBS+=-lrt 
 endif
-CC:=gcc-13
-CPP:=g++-13        
+CC:=clang
+CPP:=g++
 all: setup examples_c examples_cpp
 	
 examples_c: *.c $(LIB_WFA)
 	$(CC) $(CC_FLAGS) -L$(FOLDER_LIB) -I$(FOLDER_WFA) wfa_basic.c -o $(FOLDER_BIN)/wfa_basic -lwfa $(LIBS)
 	$(CC) $(CC_FLAGS) -L$(FOLDER_LIB) -I$(FOLDER_WFA) wfa_adapt.c -o $(FOLDER_BIN)/wfa_adapt -lwfa $(LIBS)
 	$(CC) $(CC_FLAGS) -L$(FOLDER_LIB) -I$(FOLDER_WFA) wfa_repeated.c -o $(FOLDER_BIN)/wfa_repeated -lwfa $(LIBS)
-	
+	$(CC) $(CC_FLAGS) -L$(FOLDER_LIB) -I$(FOLDER_WFA) showcase.c -o $(FOLDER_BIN)/show -lwfa $(LIBS)
 examples_cpp: *.cpp $(LIB_WFA)
 	$(CPP) $(CC_FLAGS) -L$(FOLDER_LIB) -I$(FOLDER_WFA) wfa_bindings.cpp -o $(FOLDER_BIN)/wfa_bindings -lwfacpp $(LIBS)
 	$(CPP) $(CC_FLAGS) -L$(FOLDER_LIB) -I$(FOLDER_WFA) wfa_lambda.cpp -o $(FOLDER_BIN)/wfa_lambda -lwfacpp $(LIBS)
